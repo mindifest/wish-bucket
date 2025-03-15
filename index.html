@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish Bucket - AI-Driven Innovation</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8CQ7HBDXT6"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8CQ7HBDXT6');
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcjIRUlAAAAAFEQCi558hKt_zU1SGAyjwqS-bsM" async defer></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #1a73e8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .facts,
+        .how,
+        .demo,
+        .qa,
+        .contact {
+            margin-bottom: 40px;
+        }
+
+        .facts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .facts li {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        .facts li::before {
+            content: "✔";
+            color: #34c759;
+            font-size: 32px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            padding-top: 4px;
+            padding-left: 4px;
+        }
+
+        .facts li div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .facts li strong {
+            font-size: 24px;
+            color: #1a73e8;
+        }
+
+        .facts li span {
+            font-size: 14px;
+            color: #555;
+            margin-top: 4px;
+        }
+
+        .how ol {
+            list-style: none;
+            padding: 0;
+            counter-reset: step;
+        }
+
+        .how li {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 15px 0;
+            counter-increment: step;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .how li::before {
+            content: counter(step) ".";
+            font-weight: bold;
+            color: #1a73e8;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .how li strong {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .demo {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .demo .label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #333;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 3px 0 3px 0;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .demo-tip {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .demo .scene {
+            display: none;
+        }
+
+        .demo .scene.active {
+            display: block;
+        }
+
+        .demo .chat {
+            padding: 10px;
+        }
+
+        .demo .user,
+        .demo .ai {
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 3px;
+        }
+
+        .demo .user.last {
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 600;
+            padding: 8px;
+            border-radius: 3px;
+        }
+
+        .demo .user {
+            background: #e0f7fa;
+            text-align: right;
+        }
+
+        .demo .ai {
+            background: #f5f5f5;
+            text-align: left;
+        }
+
+        .demo .card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            max-width: 300px;
+            background: #fff;
+        }
+
+        .demo .card h3 {
+            margin: 0 0 5px;
+            font-size: 14px;
+        }
+
+        .demo .card p {
+            margin: 5px 0;
+            font-size: 12px;
+        }
+
+        .demo .card a {
+            font-size: 12px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .demo .scene-intro {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .demo button {
+            background: #1a73e8;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .demo input:disabled {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            color: #777;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            width: 120px;
+        }
+
+        .demo ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .demo ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .demo ul li:hover {
+            background: #f0f0f0;
+        }
+
+        .demo ul li.active {
+            animation: pulse 2s infinite;
+        }
+
+        .accordion {
+            margin: 10px 0;
+        }
+
+        .accordion label {
+            display: block;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .accordion input[type="radio"] {
+            display: none;
+        }
+
+        .accordion .content {
+            max-height: 0;
+            overflow: hidden;
+            background: #e0f7fa;
+            padding: 0 15px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion input:checked~.content {
+            max-height: 200px;
+            padding: 15px;
+        }
+
+        .contact form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact input,
+        .contact textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .contact button {
+            background: #1a73e8;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .contact button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .loading-icon {
+            display: none;
+            width: 16px;
+            height: 16px;
+            margin-left: 8px;
+            vertical-align: middle;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-icon circle {
+            stroke: #fff;
+            opacity: 0.25;
+        }
+
+        .loading-icon path {
+            fill: #fff;
+            opacity: 0.75;
+        }
+
+        #status-message {
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 40px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfKURIkAAAAAJ_Your_Site_Key_Here"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Turn Your AI Chat into Cash—Fuel Innovation, Drive Prosperity</h1>
+
+        <div class="facts">
+            <ul>
+                <li>
+                    <div>
+                        <strong>People have unmet wants</strong>
+                        <span>Undeniable—despite developed markets, millions lack solutions daily. You see it
+                            everywhere.</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Chats overflow with needs</strong>
+                        <span>Fact—users flood Grok, ChatGPT with “I need X” calls, surging since 2023. You’re riding
+                            the wave.</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Entrepreneurs crave this</strong>
+                        <span>Truth—startups kill for solid leads; R&D burns cash. Wish Bucket delivers (e.g., 150K at
+                            $20/year)—they’re hooked.</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>The Win</strong>
+                        <span>Wish Bucket flips idle chatter into revenue—low lift, massive upside. Logic, not
+                            guesswork.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="how">
+            <h2>How It Works</h2>
+            <ol>
+                <li><strong>User types “I need a cheap single-member S-corp tax tool” into your AI chat.</strong></li>
+                <li><strong>No good solution? “Add to Wish Bucket?” pops up—user consents, answers 2-3 quick questions
+                        (price, urgency).</strong></li>
+                <li><strong>AI groups and crunches it (e.g., “150K solopreneurs demand tax tools, $20/year”).</strong>
+                </li>
+                <li><strong>Entrepreneurs grab it via dashboard, build, report back—system pings users.</strong></li>
+            </ol>
+        </div>
+
+        <p class="demo-tip"><strong>See it in action</strong>—hit the pulsing buttons to walk through Wish Bucket’s
+            magic.</p>
+
+        <div class="demo">
+            <div class="label">Demo</div>
+            <div id="scene1" class="scene active">
+                <p class="scene-intro">You’re a solopreneur, S-corp in hand, asking AI for an affordable tax answer.
+
+                </p>
+                <div class="chat">
+                    <div class="user">Hey, I’m a solo entrepreneur—any tips for managing taxes?</div>
+                    <div class="ai">Sure! Keep receipts organized and consider quarterly filings.</div>
+                    <div class="user last">That’s helpful, but I need a cheap single-member S-corp tax tool.</div>
+                </div>
+                <button onclick="nextScene(2)">Submit</button>
+            </div>
+            <div id="scene2" class="scene">
+                <div class="chat">
+                    <div class="ai">
+                        I couldn’t find a perfect low-cost tool for single-member S-corps. Would you like me to add it
+                        to <span style="font-weight: bold; color: #007bff;">Wish Bucket</span>?
+                        <div class="card">
+                            <h3>Add to Wish Bucket</h3>
+                            <p>Request: "Cheap single-member S-corp tax tool"</p>
+                            <a href="#">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="nextScene(3)">Add to Wish Bucket</button>
+            </div>
+            <div id="scene3" class="scene">
+                <p>We’d like you to answer a few questions—it’ll help future solution providers build exactly what you
+                    need.</p>
+                <div>
+                    <p>How much would you pay? <input type="text" value="~$20/year" disabled></p>
+                    <p>When do you need it? <input type="text" value="Yearly" disabled></p>
+                </div>
+                <button onclick="nextScene(4)">Submit Survey</button>
+            </div>
+            <div id="scene4" class="scene">
+                <p class="scene-intro">Now imagine you’re an entrepreneur, hunting problems to solve for profit. Your
+                    dashboard shows opportunities with real stats:</p>
+                <ul>
+                    <li class="active" onclick="nextScene(5)">150K solopreneurs demand tax tools, $20/year</li>
+                    <li>10K want a vegan meal planner, $15/month</li>
+                    <li>50K need a budget travel app, $10/year</li>
+                </ul>
+            </div>
+            <div id="scene5" class="scene">
+                <p>Wish: "Cheap single-member S-corp tax tool"</p>
+                <p>Demand: 150K users, $20/year, yearly need</p>
+                <button onclick="nextScene(6)">Snag It</button>
+            </div>
+            <div id="scene6" class="scene">
+                <p>As an entrepreneur, you’ve built a solution for: "Cheap single-member S-corp tax tool"</p>
+                <button onclick="nextScene(7)">Report Solution Built</button>
+            </div>
+            <div id="scene7" class="scene">
+                <p class="scene-intro">This is the original chat user’s inbox:</p>
+                <div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #fff;">
+                    <p><strong>Subject:</strong> Your Wish Bucket Request Is Ready!</p>
+                    <p>Hey there,</p>
+                    <p>Remember your request for a cheap single-member S-corp tax tool?</p>
+                    <p>It’s built! Check it out here:</p>
+                    <p><a href="https://wish-bucket.com/taxtool">One-stop Single-member S-corp Tax Solution</a></p>.
+                    <p>Let us know what you think—your feedback shapes the next big thing.</p>
+                    <p>Cheers,<br>Wish Bucket Team</p>
+                </div>
+                <button onclick="nextScene(1)">Back to Start</button>
+            </div>
+        </div>
+
+        <div class="qa">
+            <h2>Your Questions Answered</h2>
+            <div class="accordion">
+                <input type="radio" name="qa" id="q1">
+                <label for="q1">Why chats?</label>
+                <div class="content">Your users spill raw needs—biggest untapped pool. Chatbot trust’s soaring; this
+                    scales with it.</div>
+            </div>
+            <div class="accordion">
+                <input type="radio" name="qa" id="q2">
+                <label for="q2">Revenue how?</label>
+                <div class="content">Fee entrepreneurs or skim solution sales—your play.</div>
+            </div>
+            <div class="accordion">
+                <input type="radio" name="qa" id="q3">
+                <label for="q3">What’s the proof?</label>
+                <div class="content">A 2-3 question survey tags every wish—e.g., 150K users, $20/year, yearly need. Hard
+                    data, no fluff.</div>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h2>Get in Touch</h2>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                <input type="hidden" id="recaptchaResponse" name="_rct">
+                <button type="submit" id="submitBtn">
+                    <span>Submit</span>
+                    <svg id="loading-icon" class="loading-icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                    </svg>
+                </button>
+            </form>
+            <p id="status-message"></p>
+        </div>
+
+        <footer>Patent Pending | Mindifest LLC</footer>
+    </div>
+
+    <script>
+        function nextScene(sceneNum) {
+            document.querySelectorAll('.scene').forEach(scene => scene.classList.remove('active'));
+            document.getElementById(`scene${sceneNum}`).classList.add('active');
+        }
+
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const submitBtn = document.getElementById("submitBtn");
+            const loadingIcon = document.getElementById("loading-icon");
+            const statusMessage = document.getElementById("status-message");
+
+            // Disable button, show loading
+            submitBtn.disabled = true;
+            loadingIcon.style.display = "inline-block";
+            statusMessage.textContent = "";
+
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LcjIRUlAAAAAFEQCi558hKt_zU1SGAyjwqS-bsM', { action: 'submit' }).then(function (token) {
+                    formData.append("_rct", token);
+
+                    fetch('https://6ytfzm5n7uyptxh2bn4nqrtlc40rupkc.lambda-url.us-east-1.on.aws', {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(Object.fromEntries(formData))
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.res === "OK") {
+                                statusMessage.textContent = data.message || "Message sent!";
+                                statusMessage.style.color = "green";
+                                form.reset(); // Clear form
+                                document.getElementById("recaptchaResponse").value = ""; // Reset hidden field
+                            } else {
+                                statusMessage.textContent = data.error || "An error occurred.";
+                                statusMessage.style.color = "red";
+                            }
+                        })
+                        .catch(error => {
+                            statusMessage.textContent = "Failed to send. Try again later.";
+                            statusMessage.style.color = "red";
+                        })
+                        .finally(() => {
+                            submitBtn.disabled = false;
+                            loadingIcon.style.display = "none";
+                        });
+                });
+            });
+        });
+    </script>
+</body>
